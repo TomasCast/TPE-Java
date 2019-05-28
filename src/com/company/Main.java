@@ -3,6 +3,8 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 
 import org.jgrapht.*;
@@ -89,34 +91,9 @@ public class Main {
         return salida;
     }
 
-    public static Paquete buscarPaquete(String clase, ArrayList<Paquete> paquetes){
-        for (Paquete p: paquetes) {
-            if(p.define(clase))
-                return p;
-        }
-        return null;
-    }
 
-    public static Graph<String,DefaultEdge> buildGraph(ArrayList<Paquete> paqs){
-        Graph<String,DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
-        for (Paquete p: paqs) {
-            if(!graph.containsVertex(p.getName()))
-            graph.addVertex(p.getName());
-        }
-        //adding the vertex
-        for (Paquete p : paqs) {
 
-            ArrayList<String> dependencias = p.getDependencias();
-            for (int j=0; j<dependencias.size(); j++) {
-                Paquete p_dep = buscarPaquete(dependencias.get(j), paqs);
-                if(p_dep != null && !graph.containsEdge(p.getName(), p_dep.getName()))
-                    System.out.println(p_dep.getName() + "  "+ p.getName()); // son del mismo nombre
-                    graph.addEdge(p.getName(), p_dep.getName());
-            }
-        }
-        //adding the edges...
-        return graph;
-    }
+
 
     public static void prueba(String route){
 
@@ -190,13 +167,21 @@ public class Main {
         //prueba("C:/Users/tomi/IdeaProjects/TPE Java/apache-camel-1.6.0.odem");
        /* Graph<Integer,DefaultEdge> a = new SimpleDirectedGraph<>(DefaultEdge.class);
         a.getAllEdges(0,0);*/
-        ArrayList<Paquete> lista = getPaquetes("C:/Users/tomi/IdeaProjects/TPE Java/apache-camel-1.6.0.odem");
+        ArrayList<Paquete> lista = getPaquetes("C:/Users/tomi/IdeaProjects/TPE Java/hibernate-core-4.0.0.Final.odem");
         for(int i=0; i<lista.size(); i++)
             lista.get(i).show();
        // PaqueteCompuesto paqs = new PaqueteCompuesto(lista); // Creo que la clase paquete compuesto es al pedo porque tambien necesito acceder
         // a las clases de cada paqute
-        Graph<String,DefaultEdge> grafo = buildGraph(lista);
-        System.out.println("El Grafo generado es: \n"+grafo);
+        Graph<String,DefaultEdge> grafo = GraphTUtilities.buildGraph(lista);
+        System.out.println("El Grafo generado es: \n"+grafo+
+                "\n cantidad nodos:"+grafo.vertexSet().size());
+
+        Set<DefaultEdge> edges= grafo.edgeSet();
+        for (DefaultEdge e: edges) {
+            System.out.println(e);
+        }
+
+        System.out.println(edges.size()+"eee");
 
 
 

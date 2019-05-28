@@ -45,7 +45,7 @@ public class Paquete {
 
     public String getName(){return name;}
 
-    public void show(){
+    public void show(){   //must be String toString()
         System.out.println("Paquete: "+name);
         System.out.println("\tClases: ");
         for(String s : clases)
