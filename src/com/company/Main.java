@@ -180,10 +180,6 @@ public class Main {
         for (DefaultEdge e: edges) {
             System.out.println(e);
         }
-
-        System.out.println(edges.size()+"eee");
-
-
-
+        System.out.println(edges.size());
     }
 }
