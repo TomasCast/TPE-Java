@@ -5,8 +5,10 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-public class GraphTUtilities{
+public class GraphTUtilities extends DefaultEdge{
    // public Graph\\
 
     private static Paquete buscarPaquete(String clase, ArrayList<Paquete> paquetes){
@@ -23,7 +25,7 @@ public class GraphTUtilities{
             if(!graph.containsVertex(p.getName()))
                 graph.addVertex(p.getName());
         }
-        //adding the vertex
+        //adding the vertex...
         for (Paquete p : paqs) {
 
             ArrayList<String> dependencias = p.getDependencias();
@@ -35,7 +37,33 @@ public class GraphTUtilities{
                 }
             }
         }
-        //adding the edges...
+        //adding the edges... yeah!
         return graph;
     }
+
+    public static ArrayList<ArrayList<String>> DFS_Ciclos(Graph<String,Arco> g){
+        ArrayList<ArrayList<String>> out = new ArrayList<ArrayList<String>>();
+
+        for (String vertice: g.vertexSet()) {
+            LinkedHashSet<String> visitados= new LinkedHashSet<>();
+            String actual= new String();
+            DFS(g, out, vertice, visitados, actual);
+        }
+
+        return out;
+    }
+
+    private static void DFS(Graph<String, Arco> g, ArrayList<ArrayList<String>> cycles, String inicial, Set<String> visitados, String actual){
+        if(visitados.contains(actual) && actual.equals(inicial)){
+            // guardar el ciclo.
+        }
+        else if(!visitados.contains(actual)){
+            visitados.add(actual);
+            for (Arco hijo: g.edgesOf(actual)) {
+                hijo.getDestino();
+            }
+        }
+    }
+
+
 }
