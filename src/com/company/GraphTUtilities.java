@@ -4,6 +4,7 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -11,29 +12,22 @@ import java.util.Set;
 public class GraphTUtilities extends DefaultEdge{
    // public Graph\\
 
-    private static Paquete buscarPaquete(String clase, ArrayList<Paquete> paquetes){
-        for (Paquete p: paquetes) {
-            if(p.define(clase))
-                return p;
-        }
-        return null;
-    }
-
-    public static Graph<String, Arco> buildGraph(ArrayList<Paquete> paqs){
-        Graph<String,Arco> graph = new SimpleDirectedGraph<>(Arco.class);
-        for (Paquete p: paqs) {
-            if(!graph.containsVertex(p.getName()))
-                graph.addVertex(p.getName());
+    public static Graph<Integer, Arco> buildGraph(Diccionario dic){
+        Graph<Integer,Arco> graph = new SimpleDirectedGraph<>(Arco.class);
+        for (int i = 0; i < dic.size() ; i++) {
+            if(!graph.containsVertex(dic.getNumero(dic.getPaquete(i).getName())))
+                graph.addVertex(dic.getNumero(dic.getPaquete(i).getName()));
         }
         //adding the vertex...
-        for (Paquete p : paqs) {
+        for (int i = 0; i < dic.size() ; i++) {
 
-            ArrayList<String> dependencias = p.getDependencias();
+            ArrayList<String> dependencias = dic.getPaquete(i).getDependencias();
             for (int j=0; j<dependencias.size(); j++) {
-                Paquete p_dep = buscarPaquete(dependencias.get(j), paqs);
-                if(p_dep != null && !p_dep.getName().equals(p.getName()) && !graph.containsEdge(p.getName(), p_dep.getName())) {
-                    System.out.println(p_dep.getName() + "  " + p.getName()); // son del mismo nombre
-                    graph.addEdge(p.getName(), p_dep.getName());
+                Paquete p_dep = dic.buscarPaquete(dependencias.get(j));
+                if(p_dep != null && !Integer.valueOf(dic.getNumero(p_dep.getName())).equals(dic.getNumero(dic.getPaquete(i).getName()))
+                        && !graph.containsEdge(dic.getNumero(dic.getPaquete(i).getName()), dic.getNumero(p_dep.getName()))) {
+
+                    graph.addEdge(dic.getNumero(dic.getPaquete(i).getName()), dic.getNumero(p_dep.getName()));
                 }
             }
         }
@@ -41,31 +35,54 @@ public class GraphTUtilities extends DefaultEdge{
         return graph;
     }
 
-    public static ArrayList<ArrayList<String>> DFS_Ciclos(Graph<String,Arco> g){
-        ArrayList<ArrayList<String>> out = new ArrayList<ArrayList<String>>();
-        ArrayList<String> vertices = new ArrayList<>(g.vertexSet());
+    public static void DFS_Ciclos_void(Graph<Integer,Arco> g, PrintWriter printer){
+        ArrayList<Integer> vertices = new ArrayList<>(g.vertexSet());
 
         for (int i=0; i<vertices.size(); i++) {
-            LinkedHashSet<String> visitados= new LinkedHashSet<>();
+            LinkedHashSet<Integer> visitados= new LinkedHashSet<>();
+            DFS_void(g, vertices.get(i), visitados, vertices.get(i),printer);
+            //System.out.println("removi el:"+vertices.get(i));
+            g.removeVertex(vertices.get(i));
+            //vertices.remove(i);
+        }
+    }
+
+
+
+    public static ArrayList<ArrayList<Integer>> DFS_Ciclos(Graph<Integer,Arco> g){
+        ArrayList<ArrayList<Integer>> out = new ArrayList<>();
+        ArrayList<Integer> vertices = new ArrayList<>(g.vertexSet());
+
+        for (int i=0; i<vertices.size(); i++) {
+            LinkedHashSet<Integer> visitados= new LinkedHashSet<>();
             DFS(g, out, vertices.get(i), visitados, vertices.get(i));
             //System.out.println("removi el:"+vertices.get(i));
             g.removeVertex(vertices.get(i));
-            vertices.remove(i);
+            //vertices.remove(i);
         }
-
-
-
-        /*LinkedHashSet<String> visitados= new LinkedHashSet<>();
-        DFS(g, out, vertices.get(0), visitados, vertices.get(0));
-        System.out.println("removi el:"+vertices.get(0));
-*/
-
         return out;
     }
 
-    private static void DFS(Graph<String, Arco> g, ArrayList<ArrayList<String>> cycles, String inicial, Set<String> visitados, String actual){
+    private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer){
+        if(visitados.contains(actual) && actual.equals(inicial)){
+            printer.println(visitados.toString());
+        }
+        else if(!visitados.contains(actual)){
+            visitados.add(actual);
+            Set<Arco> arcos= g.outgoingEdgesOf(actual);
+            for (Arco hijo: arcos) {
+                DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo),printer);
+            }
+            visitados.remove(actual);
+        }
+    }
+
+
+
+    private static void DFS(Graph<Integer, Arco> g, ArrayList<ArrayList<Integer>> cycles, Integer inicial, Set<Integer> visitados, Integer actual){
         if(visitados.contains(actual) && actual.equals(inicial)){
             cycles.add(new ArrayList<>(visitados)); // guardar el ciclo
+            System.out.println(cycles.get(cycles.size()-1).toString());
         }
         else if(!visitados.contains(actual)){
             visitados.add(actual);

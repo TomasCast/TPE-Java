@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9018aad-2325-4646-930a-5ed743f0617a" name="Default Changelist" comment="">
+    <list default="true" id="d9018aad-2325-4646-930a-5ed743f0617a" name="Default Changelist" comment="* lwel">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Diccionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TPE Java/com/company/GraphTUtilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TPE Java/com/company/GraphTUtilities.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TPE Java/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TPE Java/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TPE Java/com/company/Paquete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TPE Java/com/company/Paquete.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GraphTUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GraphTUtilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Paquete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Paquete.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,20 +19,49 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
+            <state relative-caret-position="327">
+              <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#processFile#0;class#Main#0" />
                 <element signature="method#processNode#0;class#Main#0" />
+                <element signature="e#1408#1416#0" expanded="true" />
+                <element signature="method#getPaquetes#0;class#Main#0" />
                 <element signature="method#prueba#0;class#Main#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Diccionario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Paquete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
+            <state relative-caret-position="246">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,27 +79,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="611">
+              <caret line="67" column="48" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#buildGraph#0;class#GraphTUtilities#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/Arco.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/ElementoPaquete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-              <folding>
-                <element signature="e#130#131#0" expanded="true" />
-                <element signature="e#170#171#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="20" selection-start-column="20" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -107,8 +137,9 @@
         <option value="$PROJECT_DIR$/apache-camel-1.6.0.odem" />
         <option value="$PROJECT_DIR$/src/com/company/ElementoPaquete.java" />
         <option value="$PROJECT_DIR$/src/com/company/PaqueteCompuesto.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Paquete.java" />
         <option value="$PROJECT_DIR$/src/com/company/Arco.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Diccionario.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Paquete.java" />
         <option value="$PROJECT_DIR$/src/com/company/GraphTUtilities.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
@@ -126,23 +157,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="TPE Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TPE Java" type="462c0819:PsiDirectoryNode" />
+              <item name="TPE-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TPE-Java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="TPE Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TPE Java" type="462c0819:PsiDirectoryNode" />
+              <item name="TPE-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TPE-Java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="TPE Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TPE Java" type="462c0819:PsiDirectoryNode" />
+              <item name="TPE-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TPE-Java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -150,6 +179,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -167,7 +198,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -257,13 +288,22 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59480000" />
+    <option name="totallyTimeSpent" value="69231000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.028550513" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17927383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -272,23 +312,23 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.3296875" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978038" weight="0.3600629" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39937106" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978038" visible="true" weight="0.19967267" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49853587" weight="0.32861635" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49853587" weight="0.32733223" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5014641" side_tool="true" weight="0.32861635" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49926794" weight="0.32704404" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49926794" weight="0.32569557" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32980332" />
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -301,18 +341,6 @@
     <MESSAGE value="*Con clase GraphTUtilities para las utilidades del grafo&#10;*Con El algoritmo de creacion del grafo funcionando" />
     <MESSAGE value="* con un principio de dfs en proceso" />
     <option name="LAST_COMMIT_MESSAGE" value="* con un principio de dfs en proceso" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/input.txt">
@@ -354,13 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/ElementoPaquete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jgrapht/jgrapht-core/1.3.0/jgrapht-core-1.3.0-sources.jar!/org/jgrapht/graph/DefaultEdge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -383,20 +404,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Paquete.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
+        <state relative-caret-position="122">
+          <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jgrapht/jgrapht-core/1.3.0/jgrapht-core-1.3.0-sources.jar!/org/jgrapht/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="512" column="30" selection-start-line="512" selection-start-column="30" selection-end-line="512" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/ElementoPaquete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Diccionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Paquete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="246">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -405,12 +447,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
+        <state relative-caret-position="327">
+          <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#processFile#0;class#Main#0" />
             <element signature="method#processNode#0;class#Main#0" />
+            <element signature="e#1408#1416#0" expanded="true" />
+            <element signature="method#getPaquetes#0;class#Main#0" />
             <element signature="method#prueba#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="67" column="48" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#buildGraph#0;class#GraphTUtilities#0" />
           </folding>
         </state>
       </provider>

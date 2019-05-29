@@ -7,11 +7,11 @@ import java.util.Set;
 
 
 public class Paquete {
-    String name;
+    private String name;
     private Set<String> clases;
     private Set<String>dependencias;
 
-    public Paquete(String name){
+    Paquete(String name){
         this.name = name;
         clases = new LinkedHashSet<String>();
         dependencias = new LinkedHashSet<String>();
@@ -26,13 +26,11 @@ public class Paquete {
     }
 
     public ArrayList<String> getDependencias(){
-        ArrayList<String> salida= new ArrayList<String>(dependencias);
-        return salida;
+        return new ArrayList<String>(dependencias);
     }
 
     public ArrayList<String> getClases(){
-        ArrayList<String> salida= new ArrayList<String>(clases);
-        return salida;
+        return new ArrayList<String>(clases);
     }
 
     public void addClase(String clase){
@@ -43,7 +41,9 @@ public class Paquete {
         dependencias.add(clase);
     }
 
-    public String getName(){return name;}
+    public String getName(){
+        return name;
+    }
 
     public void show(){   //must be String toString()
         System.out.println("Paquete: "+name);

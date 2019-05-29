@@ -3,7 +3,6 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 
@@ -53,8 +52,10 @@ public class Main {
     }
 
     /**Levanta los paquetes de un archivo .odem junto con sus clases y dependencias.*/
-    public static ArrayList<Paquete> getPaquetes(String route){
-        ArrayList<Paquete> salida = new ArrayList<Paquete>();
+
+
+    public static Diccionario getPaquetes(String route){
+        Diccionario salida = new Diccionario();
         Document document = processFile(route);
         Element root = document.getDocumentElement();
         Node container= ((Element) root.getElementsByTagName("context").item(0)).getElementsByTagName("container").item(0);
@@ -83,11 +84,9 @@ public class Main {
                         }
                     }
                 }
-                salida.add(p);
+                salida.addPaq(p);
             }
         }
-
-
         return salida;
     }
 
@@ -167,12 +166,15 @@ public class Main {
         //prueba("C:/Users/tomi/IdeaProjects/TPE Java/apache-camel-1.6.0.odem");
        /* Graph<Integer,DefaultEdge> a = new SimpleDirectedGraph<>(DefaultEdge.class);
         a.getAllEdges(0,0);*/
-        ArrayList<Paquete> lista = getPaquetes("C:/Users/tomi/IdeaProjects/TPE Java/apache-camel-1.6.0.odem");
+        Diccionario lista = getPaquetes("apache-camel-1.6.0.odem");
         for(int i=0; i<lista.size(); i++)
-            lista.get(i).show();
+            lista.getPaquete(i).show();
        // PaqueteCompuesto paqs = new PaqueteCompuesto(lista); // Creo que la clase paquete compuesto es al pedo porque tambien necesito acceder
         // a las clases de cada paqute
-  /*      Graph<String,Arco> grafo = GraphTUtilities.buildGraph(lista);
+
+
+
+        Graph<Integer,Arco> grafo = GraphTUtilities.buildGraph(lista);
         System.out.println("El Grafo generado es: \n"+grafo+
                 "\n cantidad nodos:"+grafo.vertexSet().size());
 
@@ -181,7 +183,10 @@ public class Main {
             System.out.println(e);
         }
         System.out.println(edges.size());
-        ArrayList<ArrayList<String>> ciclos = GraphTUtilities.DFS_Ciclos(grafo);
+
+
+        //ArrayList<ArrayList<Integer>> ciclos = GraphTUtilities.DFS_Ciclos(grafo);
+
 
         //for(int i=0; i<ciclos.size(); i++)
           //  System.out.println(ciclos.get(i));
@@ -193,9 +198,10 @@ public class Main {
         }catch (Exception e){
             e.printStackTrace();
         }
-        for(int i=0; i<ciclos.size(); i++)
-            printer.println(ciclos.get(i).toString());
-*/
+
+        GraphTUtilities.DFS_Ciclos_void(grafo,printer);
+
+        /*
         Graph<String, Arco> g = new SimpleDirectedGraph<>(Arco.class);
         g.addVertex("1");
         g.addVertex("2");
@@ -224,7 +230,7 @@ public class Main {
         g.addEdge("5","2");
 
         System.out.println(GraphTUtilities.DFS_Ciclos(g));
-
+        */
 
     }
 }
