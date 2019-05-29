@@ -167,19 +167,64 @@ public class Main {
         //prueba("C:/Users/tomi/IdeaProjects/TPE Java/apache-camel-1.6.0.odem");
        /* Graph<Integer,DefaultEdge> a = new SimpleDirectedGraph<>(DefaultEdge.class);
         a.getAllEdges(0,0);*/
-        ArrayList<Paquete> lista = getPaquetes("C:/Users/tomi/IdeaProjects/TPE Java/hibernate-core-4.0.0.Final.odem");
+        ArrayList<Paquete> lista = getPaquetes("C:/Users/tomi/IdeaProjects/TPE Java/apache-camel-1.6.0.odem");
         for(int i=0; i<lista.size(); i++)
             lista.get(i).show();
        // PaqueteCompuesto paqs = new PaqueteCompuesto(lista); // Creo que la clase paquete compuesto es al pedo porque tambien necesito acceder
         // a las clases de cada paqute
-        Graph<String,DefaultEdge> grafo = GraphTUtilities.buildGraph(lista);
+  /*      Graph<String,Arco> grafo = GraphTUtilities.buildGraph(lista);
         System.out.println("El Grafo generado es: \n"+grafo+
                 "\n cantidad nodos:"+grafo.vertexSet().size());
 
-        Set<DefaultEdge> edges= grafo.edgeSet();
+        Set<Arco> edges= grafo.edgeSet();
         for (DefaultEdge e: edges) {
             System.out.println(e);
         }
         System.out.println(edges.size());
+        ArrayList<ArrayList<String>> ciclos = GraphTUtilities.DFS_Ciclos(grafo);
+
+        //for(int i=0; i<ciclos.size(); i++)
+          //  System.out.println(ciclos.get(i));
+
+        File salida= new File("ciclos.txt");
+        PrintWriter printer = null;
+        try {
+            printer = new PrintWriter(salida);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        for(int i=0; i<ciclos.size(); i++)
+            printer.println(ciclos.get(i).toString());
+*/
+        Graph<String, Arco> g = new SimpleDirectedGraph<>(Arco.class);
+        g.addVertex("1");
+        g.addVertex("2");
+        g.addVertex("3");
+        g.addVertex("4");
+        g.addVertex("5");
+        g.addVertex("6");
+        g.addVertex("7");
+        g.addVertex("8");
+        g.addVertex("9");
+
+        g.addEdge("8","9");
+        g.addEdge("9","8");
+        g.addEdge("2","9");
+        g.addEdge("1","8");
+        g.addEdge("1","2");
+        g.addEdge("1","5");
+        g.addEdge("2","7");
+        g.addEdge("2","3");
+        g.addEdge("3","2");
+        g.addEdge("3","1");
+        g.addEdge("3","4");
+        g.addEdge("3","6");
+        g.addEdge("6","4");
+        g.addEdge("4","5");
+        g.addEdge("5","2");
+
+        System.out.println(GraphTUtilities.DFS_Ciclos(g));
+
+
     }
 }

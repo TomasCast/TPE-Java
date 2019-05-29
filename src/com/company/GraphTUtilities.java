@@ -19,8 +19,8 @@ public class GraphTUtilities extends DefaultEdge{
         return null;
     }
 
-    public static Graph<String, DefaultEdge> buildGraph(ArrayList<Paquete> paqs){
-        Graph<String,DefaultEdge> graph = new SimpleDirectedGraph<>(DefaultEdge.class);
+    public static Graph<String, Arco> buildGraph(ArrayList<Paquete> paqs){
+        Graph<String,Arco> graph = new SimpleDirectedGraph<>(Arco.class);
         for (Paquete p: paqs) {
             if(!graph.containsVertex(p.getName()))
                 graph.addVertex(p.getName());
@@ -43,26 +43,39 @@ public class GraphTUtilities extends DefaultEdge{
 
     public static ArrayList<ArrayList<String>> DFS_Ciclos(Graph<String,Arco> g){
         ArrayList<ArrayList<String>> out = new ArrayList<ArrayList<String>>();
+        ArrayList<String> vertices = new ArrayList<>(g.vertexSet());
 
-        for (String vertice: g.vertexSet()) {
+        for (int i=0; i<vertices.size(); i++) {
             LinkedHashSet<String> visitados= new LinkedHashSet<>();
-            String actual= new String();
-            DFS(g, out, vertice, visitados, actual);
+            DFS(g, out, vertices.get(i), visitados, vertices.get(i));
+            //System.out.println("removi el:"+vertices.get(i));
+            g.removeVertex(vertices.get(i));
+            vertices.remove(i);
         }
+
+
+
+        /*LinkedHashSet<String> visitados= new LinkedHashSet<>();
+        DFS(g, out, vertices.get(0), visitados, vertices.get(0));
+        System.out.println("removi el:"+vertices.get(0));
+*/
 
         return out;
     }
 
     private static void DFS(Graph<String, Arco> g, ArrayList<ArrayList<String>> cycles, String inicial, Set<String> visitados, String actual){
         if(visitados.contains(actual) && actual.equals(inicial)){
-            // guardar el ciclo.
+            cycles.add(new ArrayList<>(visitados)); // guardar el ciclo
         }
         else if(!visitados.contains(actual)){
             visitados.add(actual);
-            for (Arco hijo: g.edgesOf(actual)) {
-                hijo.getDestino();
+            Set<Arco> arcos= g.outgoingEdgesOf(actual);
+            for (Arco hijo: arcos) {
+                DFS(g, cycles, inicial, visitados, g.getEdgeTarget(hijo));
             }
+            visitados.remove(actual);
         }
+        //visitados.remove(actual); // mal
     }
 
 
