@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9018aad-2325-4646-930a-5ed743f0617a" name="Default Changelist" comment="* lwel">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Diccionario.java" afterDir="false" />
+    <list default="true" id="d9018aad-2325-4646-930a-5ed743f0617a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TPE Java/com/company/GraphTUtilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TPE Java/com/company/GraphTUtilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TPE Java/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TPE Java/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TPE Java/com/company/Paquete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TPE Java/com/company/Paquete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GraphTUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GraphTUtilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Paquete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Paquete.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,10 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
+            <state relative-caret-position="752">
               <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -79,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="611">
@@ -123,6 +115,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Rafael &lt;rafaelbenavento@hotmail.com&gt;" />
         <option value="TomasCast &lt;tomasc613@gmail.com&gt;" />
       </list>
     </option>
@@ -284,11 +277,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559083945652</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="* equis">
+      <created>1559156281353</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559156281354</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69231000" />
+    <option name="totallyTimeSpent" value="69844000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -312,7 +312,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.3296875" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978038" visible="true" weight="0.19967267" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978038" weight="0.19967267" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -322,7 +322,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5014641" side_tool="true" weight="0.32861635" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49926794" weight="0.32569557" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49926794" visible="true" weight="0.32569557" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -340,7 +340,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="*Con clase GraphTUtilities para las utilidades del grafo&#10;*Con El algoritmo de creacion del grafo funcionando" />
     <MESSAGE value="* con un principio de dfs en proceso" />
-    <option name="LAST_COMMIT_MESSAGE" value="* con un principio de dfs en proceso" />
+    <MESSAGE value="* lwel" />
+    <MESSAGE value="* equis" />
+    <option name="LAST_COMMIT_MESSAGE" value="* equis" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/input.txt">
@@ -418,10 +420,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/ElementoPaquete.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Paquete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="246">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="67" column="48" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#buildGraph#0;class#GraphTUtilities#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -435,19 +451,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Paquete.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/ElementoPaquete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
+        <state relative-caret-position="752">
           <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -456,17 +469,6 @@
             <element signature="e#1408#1416#0" expanded="true" />
             <element signature="method#getPaquetes#0;class#Main#0" />
             <element signature="method#prueba#0;class#Main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GraphTUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="67" column="48" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#buildGraph#0;class#GraphTUtilities#0" />
           </folding>
         </state>
       </provider>
