@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Diccionario {
 
@@ -38,6 +39,14 @@ public class Diccionario {
             }
         }
         return null;
+    }
+
+    public ArrayList<String> traducirIntAString(Set<Integer> set){
+        ArrayList<String> s = new ArrayList<>();
+        for(Integer i : set){
+            s.add(getNombre(i));
+        }
+        return s;
     }
 
 }

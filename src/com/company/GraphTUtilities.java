@@ -12,6 +12,8 @@ import java.util.Set;
 public class GraphTUtilities extends DefaultEdge{
    // public Graph\\
 
+    private static long i= 1;
+
     public static Graph<Integer, Arco> buildGraph(Diccionario dic){
         Graph<Integer,Arco> graph = new SimpleDirectedGraph<>(Arco.class);
         for (int i = 0; i < dic.size() ; i++) {
@@ -35,12 +37,12 @@ public class GraphTUtilities extends DefaultEdge{
         return graph;
     }
 
-    public static void DFS_Ciclos_void(Graph<Integer,Arco> g, PrintWriter printer){
+    public static void DFS_Ciclos_void(Graph<Integer,Arco> g, PrintWriter printer, Diccionario dic){
         ArrayList<Integer> vertices = new ArrayList<>(g.vertexSet());
 
         for (int i=0; i<vertices.size(); i++) {
             LinkedHashSet<Integer> visitados= new LinkedHashSet<>();
-            DFS_void(g, vertices.get(i), visitados, vertices.get(i),printer);
+            DFS_void(g, vertices.get(i), visitados, vertices.get(i),printer, dic);
             //System.out.println("removi el:"+vertices.get(i));
             g.removeVertex(vertices.get(i));
             //vertices.remove(i);
@@ -63,18 +65,20 @@ public class GraphTUtilities extends DefaultEdge{
         return out;
     }
 
-    private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer){
-        if(visitados.contains(actual) && actual.equals(inicial)){
-            printer.println(visitados.toString());
-        }
-        else if(!visitados.contains(actual)){
-            visitados.add(actual);
-            Set<Arco> arcos= g.outgoingEdgesOf(actual);
-            for (Arco hijo: arcos) {
-                DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo),printer);
+    private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer,Diccionario dic){
+        if(!(visitados.size() > 10))
+            if(visitados.contains(actual) && actual.equals(inicial) && visitados.size() > 3){
+                printer.println(dic.traducirIntAString(visitados).toString());
+                //System.out.println(visitados.toString() + i++);
             }
-            visitados.remove(actual);
-        }
+            else if(!visitados.contains(actual)){
+                visitados.add(actual);
+                Set<Arco> arcos= g.outgoingEdgesOf(actual);
+                for (Arco hijo: arcos) {
+                    DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo),printer,dic);
+                }
+                visitados.remove(actual);
+            }
     }
 
 

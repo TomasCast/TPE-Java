@@ -8,10 +8,6 @@ import java.util.Set;
 
 import org.jgrapht.*;
 import org.jgrapht.graph.*;
-import org.jgrapht.io.*;
-import org.jgrapht.traverse.*;
-
-
 
 public class Main {
 
@@ -199,7 +195,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        GraphTUtilities.DFS_Ciclos_void(grafo,printer);
+        GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista);
+
+        printer.close();
 
         /*
         Graph<String, Arco> g = new SimpleDirectedGraph<>(Arco.class);
