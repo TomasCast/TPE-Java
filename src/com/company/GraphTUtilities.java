@@ -11,6 +11,7 @@ import java.util.Set;
 
 public class GraphTUtilities extends DefaultEdge{
    // public Graph\\
+    public static int MAX_CICLO;
 
     private static long i= 1;
 
@@ -65,10 +66,18 @@ public class GraphTUtilities extends DefaultEdge{
         return out;
     }
 
+    private static void imprimirCiclo(ArrayList<String> ciclos, PrintWriter printer){
+        for (String s: ciclos) {
+            printer.print(s+" ; ");
+        }
+        printer.println();
+    }
+
     private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer,Diccionario dic){
-        if(!(visitados.size() > 10))
+        if(!(visitados.size() > MAX_CICLO))
             if(visitados.contains(actual) && actual.equals(inicial) && visitados.size() > 3){
-                printer.println(dic.traducirIntAString(visitados).toString());
+                //printer.println(dic.traducirIntAString(visitados).toString());
+                imprimirCiclo(dic.traducirIntAString(visitados), printer);
                 //System.out.println(visitados.toString() + i++);
             }
             else if(!visitados.contains(actual)){
