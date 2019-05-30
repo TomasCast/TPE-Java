@@ -72,6 +72,30 @@ public class GraphTUtilities extends DefaultEdge{
         }
         printer.println();
     }
+    /**TODO traducir los ciclos de integer a String !!!*/
+    public static boolean ChequearCiclo(Graph<Integer, Arco> g, Integer v1, Integer v2){
+        LinkedHashSet<Integer> visitados = new LinkedHashSet<>();
+        return DFS_ChequearCiclo(g,v1,v1,v2,visitados);
+    }
+
+    public static boolean DFS_ChequearCiclo(Graph<Integer, Arco> g, Integer inicial, Integer actual, Integer vertice2, Set<Integer> visitados){
+        if(visitados.contains(actual) && actual.equals(inicial)) {
+            if (visitados.contains(vertice2))
+                return true;
+        } else {
+            if(!visitados.contains(actual)){
+                visitados.add(actual);
+                Set<Arco> arcos= g.outgoingEdgesOf(actual);
+                for(Arco hijos : arcos) {
+                    if (DFS_ChequearCiclo(g, inicial, g.getEdgeTarget(hijos), vertice2, visitados))
+                        return true;
+                }
+                visitados.remove(actual);
+                return false;
+            }
+        }
+        return false;
+    }
 
     private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer,Diccionario dic){
         if(!(visitados.size() > MAX_CICLO))

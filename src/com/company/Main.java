@@ -84,7 +84,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Diccionario lista = getPaquetes("apache-camel-1.6.0.odem");
+ /*       Diccionario lista = getPaquetes("apache-camel-1.6.0.odem");
         for(int i=0; i<lista.size(); i++)
             lista.getPaquete(i).show();
 
@@ -105,37 +105,38 @@ public class Main {
         GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista);
 
         printer.close();
+*/
 
-        /*
-        Graph<String, Arco> g = new SimpleDirectedGraph<>(Arco.class);
-        g.addVertex("1");
-        g.addVertex("2");
-        g.addVertex("3");
-        g.addVertex("4");
-        g.addVertex("5");
-        g.addVertex("6");
-        g.addVertex("7");
-        g.addVertex("8");
-        g.addVertex("9");
+        Graph<Integer, Arco> g = new SimpleDirectedGraph<>(Arco.class);
+        g.addVertex(1);
+        g.addVertex(2);
+        g.addVertex(3);
+        g.addVertex(4);
+        g.addVertex(5);
+        g.addVertex(6);
+        g.addVertex(7);
+        g.addVertex(8);
+        g.addVertex(9);
 
-        g.addEdge("8","9");
-        g.addEdge("9","8");
-        g.addEdge("2","9");
-        g.addEdge("1","8");
-        g.addEdge("1","2");
-        g.addEdge("1","5");
-        g.addEdge("2","7");
-        g.addEdge("2","3");
-        g.addEdge("3","2");
-        g.addEdge("3","1");
-        g.addEdge("3","4");
-        g.addEdge("3","6");
-        g.addEdge("6","4");
-        g.addEdge("4","5");
-        g.addEdge("5","2");
+        g.addEdge(8,9);
+        g.addEdge(9,8);
+        g.addEdge(2,9);
+        g.addEdge(1,8);
+        g.addEdge(1,2);
+        g.addEdge(1,5);
+        g.addEdge(2,7);
+        g.addEdge(2,3);
+        g.addEdge(3,2);
+        g.addEdge(3,1);
+        g.addEdge(3,4);
+        g.addEdge(3,6);
+        g.addEdge(6,4);
+        g.addEdge(4,5);
+        g.addEdge(5,2);
 
-        System.out.println(GraphTUtilities.DFS_Ciclos(g));
-        */
+        //System.out.println(GraphTUtilities.DFS_Ciclos(g));
+
+        System.out.println(GraphTUtilities.ChequearCiclo(g,7,2));
 
     }
 }
