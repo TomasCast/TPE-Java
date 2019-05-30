@@ -3,9 +3,6 @@ package com.company;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
@@ -112,7 +109,7 @@ public class GraphTUtilities extends DefaultEdge{
 
     private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer,
                                  Diccionario dic, Hashtable<Integer, Integer> tabla_ciclos){
-        if(!(visitados.size() > MAX_CICLO))
+       // if(!(visitados.size() > MAX_CICLO)){ //visitados.size()<=MAX_CICLO
             if(visitados.contains(actual) && actual.equals(inicial) && visitados.size() >= 3){
                 //printer.println(dic.traducirIntAString(visitados).toString());
                 imprimirCiclo(dic.traducirIntAString(visitados), printer);
@@ -126,11 +123,14 @@ public class GraphTUtilities extends DefaultEdge{
             else if(!visitados.contains(actual)){
                 visitados.add(actual);
                 Set<Arco> arcos= g.outgoingEdgesOf(actual);
-                for (Arco hijo: arcos) {
-                    DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo),printer,dic, tabla_ciclos);
+                if(visitados.size()+1 <= MAX_CICLO){
+                    for (Arco hijo : arcos) {
+                        DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo), printer, dic, tabla_ciclos);
+                    }
                 }
                 visitados.remove(actual);
             }
+       // }
     }
 
 

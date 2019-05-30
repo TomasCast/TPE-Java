@@ -102,7 +102,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        GraphTUtilities.MAX_CICLO = 100000;
+        GraphTUtilities.MAX_CICLO = 10;
 
         long inicio = System.currentTimeMillis();
         GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista, tabla_ciclos);
@@ -113,8 +113,13 @@ public class Main {
         System.out.println("Se tardo: "+(fin - inicio)/1000+ " seg");
 
         printer.close();
-        for(int i=1;i<tabla_ciclos.size(); i++)
-            System.out.println("tamaño ciclo: "+i+" cantidad de ciclos: "+tabla_ciclos.get(i));
+        int sum =0;
+        for(int i=3;i<tabla_ciclos.size()+3; i++){
+            System.out.println("tamaño ciclo: " + i + " cantidad de ciclos: " + tabla_ciclos.get(i));
+            if(tabla_ciclos.get(i) != null)
+                sum += tabla_ciclos.get(i);
+        }
+        System.out.println("total ciclos: "+sum);
 
 
  /*       Graph<Integer, Arco> g = new SimpleDirectedGraph<>(Arco.class);
