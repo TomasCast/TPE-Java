@@ -3,6 +3,7 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Set;
 
 
@@ -84,17 +85,17 @@ public class Main {
 
 
     public static void main(String[] args) {
- /*       Diccionario lista = getPaquetes("apache-camel-1.6.0.odem");
+        Diccionario lista = getPaquetes("apache-camel-1.6.0.odem");
         for(int i=0; i<lista.size(); i++)
             lista.getPaquete(i).show();
 
         Graph<Integer,Arco> grafo = GraphTUtilities.buildGraph(lista);
-        mostrarGrafo(grafo, lista);
-        //ArrayList<ArrayList<Integer>> ciclos = GraphTUtilities.DFS_Ciclos(grafo);
+        //mostrarGrafo(grafo, lista);
 
-
+        Hashtable<Integer, Integer> tabla_ciclos = new Hashtable<>();
         File salida= new File("ciclos.txt");
         PrintWriter printer = null;
+        //BufferedWriter printer_buff = null;
         try {
             printer = new PrintWriter(salida);
         }catch (Exception e){
@@ -102,12 +103,21 @@ public class Main {
         }
 
         GraphTUtilities.MAX_CICLO = 100000;
-        GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista);
+
+        long inicio = System.currentTimeMillis();
+        GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista, tabla_ciclos);
+       // System.out.println(
+       //         GraphTUtilities.ChequearCiclo(grafo,lista.getNumero("org.apache.camel.model"), lista.getNumero("org.apache.camel.model.language"))
+        //);
+        long fin = System.currentTimeMillis();
+        System.out.println("Se tardo: "+(fin - inicio)/1000+ " seg");
 
         printer.close();
-*/
+        for(int i=1;i<tabla_ciclos.size(); i++)
+            System.out.println("tamaño ciclo: "+i+" cantidad de ciclos: "+tabla_ciclos.get(i));
 
-        Graph<Integer, Arco> g = new SimpleDirectedGraph<>(Arco.class);
+
+ /*       Graph<Integer, Arco> g = new SimpleDirectedGraph<>(Arco.class);
         g.addVertex(1);
         g.addVertex(2);
         g.addVertex(3);
@@ -137,6 +147,6 @@ public class Main {
         //System.out.println(GraphTUtilities.DFS_Ciclos(g));
 
         System.out.println(GraphTUtilities.ChequearCiclo(g,7,2));
-
+*/
     }
 }

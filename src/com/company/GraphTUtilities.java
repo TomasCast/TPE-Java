@@ -4,10 +4,10 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 public class GraphTUtilities extends DefaultEdge{
    // public Graph\\
@@ -38,12 +38,19 @@ public class GraphTUtilities extends DefaultEdge{
         return graph;
     }
 
-    public static void DFS_Ciclos_void(Graph<Integer,Arco> g, PrintWriter printer, Diccionario dic){
+    /**Hace Analisis sobre g, buscando todos los ciclos de tamaño mayor o igual a 3 y menores que MAX_CICLO.
+     * Tambien registra la cantidad total de ciclos que cumplen esa regla, discriminando por tamaños
+     * @param g Grafo a analizar.
+     * @param printer para imprimir al archivo los ciclos.
+     * @param dic para traducir los numeros de los vertices a los nombres String reales.
+     * @param tabla_ciclos tabla que contiene el total de los ciclos discriminando por tamaños
+     * */
+    public static void DFS_Ciclos_void(Graph<Integer,Arco> g, PrintWriter printer, Diccionario dic, Hashtable<Integer, Integer> tabla_ciclos){
         ArrayList<Integer> vertices = new ArrayList<>(g.vertexSet());
 
         for (int i=0; i<vertices.size(); i++) {
             LinkedHashSet<Integer> visitados= new LinkedHashSet<>();
-            DFS_void(g, vertices.get(i), visitados, vertices.get(i),printer, dic);
+            DFS_void(g, vertices.get(i), visitados, vertices.get(i),printer, dic, tabla_ciclos);
             //System.out.println("removi el:"+vertices.get(i));
             g.removeVertex(vertices.get(i));
             //vertices.remove(i);
@@ -51,7 +58,7 @@ public class GraphTUtilities extends DefaultEdge{
     }
 
 
-
+    // TODO never used method
     public static ArrayList<ArrayList<Integer>> DFS_Ciclos(Graph<Integer,Arco> g){
         ArrayList<ArrayList<Integer>> out = new ArrayList<>();
         ArrayList<Integer> vertices = new ArrayList<>(g.vertexSet());
@@ -68,17 +75,22 @@ public class GraphTUtilities extends DefaultEdge{
 
     private static void imprimirCiclo(ArrayList<String> ciclos, PrintWriter printer){
         for (String s: ciclos) {
-            printer.print(s+" ; ");
+                printer.write(s + " ; ");
         }
-        printer.println();
+            printer.println();
     }
-    /**TODO traducir los ciclos de integer a String !!!*/
-    public static boolean ChequearCiclo(Graph<Integer, Arco> g, Integer v1, Integer v2){
+
+    /**TODO traducir los ciclos de integer a String !!!
+     * -> quizas esto podria venir traducido de afuera.*/
+    public static boolean chequearCiclo(Graph<Integer, Arco> g, Integer v1, Integer v2){
         LinkedHashSet<Integer> visitados = new LinkedHashSet<>();
         return DFS_ChequearCiclo(g,v1,v1,v2,visitados);
     }
 
-    public static boolean DFS_ChequearCiclo(Graph<Integer, Arco> g, Integer inicial, Integer actual, Integer vertice2, Set<Integer> visitados){
+
+
+
+    private static boolean DFS_ChequearCiclo(Graph<Integer, Arco> g, Integer inicial, Integer actual, Integer vertice2, Set<Integer> visitados){
         if(visitados.contains(actual) && actual.equals(inicial)) {
             if (visitados.contains(vertice2))
                 return true;
@@ -97,25 +109,32 @@ public class GraphTUtilities extends DefaultEdge{
         return false;
     }
 
-    private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer,Diccionario dic){
+
+    private static void DFS_void(Graph<Integer,Arco> g, Integer inicial, Set<Integer> visitados, Integer actual, PrintWriter printer,
+                                 Diccionario dic, Hashtable<Integer, Integer> tabla_ciclos){
         if(!(visitados.size() > MAX_CICLO))
-            if(visitados.contains(actual) && actual.equals(inicial) && visitados.size() > 3){
+            if(visitados.contains(actual) && actual.equals(inicial) && visitados.size() >= 3){
                 //printer.println(dic.traducirIntAString(visitados).toString());
                 imprimirCiclo(dic.traducirIntAString(visitados), printer);
+
+                if(tabla_ciclos.containsKey(visitados.size()))
+                    tabla_ciclos.put(visitados.size(), tabla_ciclos.get(visitados.size()) + 1);
+                else
+                    tabla_ciclos.put(visitados.size(), 1);
                 //System.out.println(visitados.toString() + i++);
             }
             else if(!visitados.contains(actual)){
                 visitados.add(actual);
                 Set<Arco> arcos= g.outgoingEdgesOf(actual);
                 for (Arco hijo: arcos) {
-                    DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo),printer,dic);
+                    DFS_void(g, inicial, visitados, g.getEdgeTarget(hijo),printer,dic, tabla_ciclos);
                 }
                 visitados.remove(actual);
             }
     }
 
 
-
+    // TODO never used method
     private static void DFS(Graph<Integer, Arco> g, ArrayList<ArrayList<Integer>> cycles, Integer inicial, Set<Integer> visitados, Integer actual){
         if(visitados.contains(actual) && actual.equals(inicial)){
             cycles.add(new ArrayList<>(visitados)); // guardar el ciclo
