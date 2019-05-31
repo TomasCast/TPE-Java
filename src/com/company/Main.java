@@ -1,10 +1,12 @@
 package com.company;
+import org.jgrapht.alg.cycle.JohnsonSimpleCycles;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
+import java.util.List;
 
 
 import org.jgrapht.*;
@@ -102,19 +104,29 @@ public class Main {
             e.printStackTrace();
         }
 
-        GraphTUtilities.MAX_CICLO = 10;
+        GraphTUtilities.MAX_CICLO = 1000;
 
         long inicio = System.currentTimeMillis();
-        GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista, tabla_ciclos);
+        //GraphTUtilities.DFS_Ciclos_void(grafo,printer,lista, tabla_ciclos);
+
        // System.out.println(
        //         GraphTUtilities.ChequearCiclo(grafo,lista.getNumero("org.apache.camel.model"), lista.getNumero("org.apache.camel.model.language"))
         //);
+        JohnsonSimpleCycles<Integer, Arco> j = new JohnsonSimpleCycles<>(grafo);
+       // System.out.println(j.findSimpleCycles().size());
+        List<List<Integer>> l = j.findSimpleCycles();
+        int elim = 0;
+        for(int i=0; i<l.size(); i++) {
+            if (l.get(i).size() == 2)
+                elim++;
+        }
+        System.out.println(elim);
         long fin = System.currentTimeMillis();
         System.out.println("Se tardo: "+(fin - inicio)/1000+ " seg");
 
         printer.close();
         int sum =0;
-        for(int i=3;i<tabla_ciclos.size()+3; i++){
+        for(int i=2;i<tabla_ciclos.size()+3; i++){
             System.out.println("tamaño ciclo: " + i + " cantidad de ciclos: " + tabla_ciclos.get(i));
             if(tabla_ciclos.get(i) != null)
                 sum += tabla_ciclos.get(i);

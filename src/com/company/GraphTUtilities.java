@@ -6,7 +6,7 @@ import org.jgrapht.graph.SimpleDirectedGraph;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class GraphTUtilities extends DefaultEdge{
+public class GraphTUtilities{
    // public Graph\\
     public static int MAX_CICLO;
 
@@ -55,20 +55,6 @@ public class GraphTUtilities extends DefaultEdge{
     }
 
 
-    // TODO never used method
-    public static ArrayList<ArrayList<Integer>> DFS_Ciclos(Graph<Integer,Arco> g){
-        ArrayList<ArrayList<Integer>> out = new ArrayList<>();
-        ArrayList<Integer> vertices = new ArrayList<>(g.vertexSet());
-
-        for (int i=0; i<vertices.size(); i++) {
-            LinkedHashSet<Integer> visitados= new LinkedHashSet<>();
-            DFS(g, out, vertices.get(i), visitados, vertices.get(i));
-            //System.out.println("removi el:"+vertices.get(i));
-            g.removeVertex(vertices.get(i));
-            //vertices.remove(i);
-        }
-        return out;
-    }
 
     private static void imprimirCiclo(ArrayList<String> ciclos, PrintWriter printer){
         for (String s: ciclos) {
@@ -111,14 +97,12 @@ public class GraphTUtilities extends DefaultEdge{
                                  Diccionario dic, Hashtable<Integer, Integer> tabla_ciclos){
        // if(!(visitados.size() > MAX_CICLO)){ //visitados.size()<=MAX_CICLO
             if(visitados.contains(actual) && actual.equals(inicial) && visitados.size() >= 3){
-                //printer.println(dic.traducirIntAString(visitados).toString());
                 imprimirCiclo(dic.traducirIntAString(visitados), printer);
 
                 if(tabla_ciclos.containsKey(visitados.size()))
                     tabla_ciclos.put(visitados.size(), tabla_ciclos.get(visitados.size()) + 1);
                 else
                     tabla_ciclos.put(visitados.size(), 1);
-                //System.out.println(visitados.toString() + i++);
             }
             else if(!visitados.contains(actual)){
                 visitados.add(actual);
@@ -133,21 +117,4 @@ public class GraphTUtilities extends DefaultEdge{
        // }
     }
 
-
-    // TODO never used method
-    private static void DFS(Graph<Integer, Arco> g, ArrayList<ArrayList<Integer>> cycles, Integer inicial, Set<Integer> visitados, Integer actual){
-        if(visitados.contains(actual) && actual.equals(inicial)){
-            cycles.add(new ArrayList<>(visitados)); // guardar el ciclo
-            System.out.println(cycles.get(cycles.size()-1).toString());
-        }
-        else if(!visitados.contains(actual)){
-            visitados.add(actual);
-            Set<Arco> arcos= g.outgoingEdgesOf(actual);
-            for (Arco hijo: arcos) {
-                DFS(g, cycles, inicial, visitados, g.getEdgeTarget(hijo));
-            }
-            visitados.remove(actual);
-        }
-        //visitados.remove(actual); // mal
-    }
 }
